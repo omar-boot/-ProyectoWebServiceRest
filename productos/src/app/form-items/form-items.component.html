@@ -1,0 +1,13 @@
+<div class="modal-body">
+    <label for="nombre">Nombre</label>
+    <input type="text" class="form-control" id="nombre" [(ngModel)]="productoItemHijo.nombre">
+    <br>
+    <label for="cantidad">Cantidad</label>
+    <input type="text" class="form-control" id="cantidad" [(ngModel)]="productoItemHijo.cantidad">
+    <br>
+    <label for="codigoInventario">Codigo Inventario</label>
+    <input type="text" class="form-control" id="codigoInventario" [(ngModel)]="productoItemHijo.codigoInventario">
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="crearActualizarItem()">Guardar</button>
+</div>

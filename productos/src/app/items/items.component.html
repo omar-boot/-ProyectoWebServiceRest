@@ -1,0 +1,55 @@
+<div class="container"> 
+  <h1>{{titulo}}</h1>
+  <h2>{{tituloProductoItem}}</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary px-3" data-toggle="modal" data-target="#myModalCrear" (click)="configModalCrear()">Agregar Item</button>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Buscar Item..." [(ngModel)]="idItemProducto">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary" type="button" (click)="buscarItem()">Buscar!</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#Item</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Codigo Inventario</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listaItems">
+          <th scope="row">{{item.idItem}}</th>
+          <th scope="row">{{item.nombre}}</th>
+          <th scope="row">{{item.cantidad}}</th>
+          <th scope="row">{{item.codigoInventario}}</th>
+          <th>
+            <button type="button" class="btn btn-success px-3" data-toggle="modal" data-target="#myModalCrear" (click)="configModalEditar(item)"><i class="fa fa-edit"></i></button>
+            &nbsp;
+            <button type="button" class="btn btn-danger px-3" (click)="eliminarItem(item.idItem)"><i class="fa fa-trash"></i></button>
+          </th>          
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div id="myModalCrear" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">{{tituloModal}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+      <app-form-items [productoItemHijo]="productoItem"></app-form-items>
+    </div>
+  </div>
+</div>
